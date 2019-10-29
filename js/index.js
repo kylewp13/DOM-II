@@ -128,14 +128,13 @@ dblclick.addEventListener('dblclick', function (){
 });
 
 //Nest two similar events somewhere in the site and prevent the event propagation 
-const card = document.querySelectorAll(".destination");
-card.forEach(function (a){
-  a.addEventListener("click", function (e){
-    card.style.background="red"
-    e.stopPropagation()
-  })
+const body = document.querySelector("body");
+
+body.addEventListener("click", (event) => {
+ body.style.backgroundColor="papayawhip";
+  console.log("end")
+  event.stopPropagation();
 })
-console.log(card)
 
 //preventDefault()
 const prevent = document.querySelectorAll('a');
@@ -143,6 +142,7 @@ const prevent = document.querySelectorAll('a');
 prevent.forEach(function(a){
     a.addEventListener('click', function(event){
         event.preventDefault();
+        event.stopPropagation();
     });
 });
 
